@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encontre Seu Refúgio Ideal - Victor Almeida Broker</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-beige': '#F8F5F2',
+                        'brand-grey-dark': '#333333',
+                        'brand-grey-medium': '#666666',
+                        'brand-grey-light': '#EEEEEE',
+                        'brand-sage': '#B8C4B8',
+                        'brand-terracotta': '#D2A88F',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            color: #333333;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        .font-montserrat-regular {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl w-full space-y-8 bg-brand-beige p-10 rounded-lg shadow-sm">
+            <div>
+                <h2 class="mt-6 text-center text-2xl text-brand-grey-dark">
+                    Encontre Seu Refúgio Ideal
+                </h2>
+                <hr class="mt-2 mb-6 border-t border-brand-grey-light w-1/4 mx-auto" />
+                <p class="mt-2 text-center text-sm text-brand-grey-medium">
+                    Conte-nos como é o lar dos seus sonhos e deixe-nos ajudar a encontrá-lo.
+                </p>
+            </div>
+            <form class="mt-8 space-y-6" id="compraForm">
+                <!-- Faixa de preço -->
+                <div>
+                    <label class="block text-xs font-medium text-brand-grey-medium">Faixa de preço desejado *</label>
+                    <div class="mt-1 grid grid-cols-2 gap-4">
+                        <div class="relative rounded-md shadow-sm">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <span class="text-brand-grey-medium sm:text-sm"> R$ </span>
+                            </div>
+                            <input
+                                id="preco_min"
+                                name="preco_min"
+                                type="number"
+                                min="0"
+                                required
+                                class="appearance-none block w-full pl-8 pr-3 py-2 border border-brand-grey-light placeholder-gray-400 text-brand-grey-medium rounded-md focus:outline-none focus:ring-brand-sage focus:border-brand-sage focus:z-10 sm:text-sm bg-white"
+                                placeholder="De"
+                            />
+                        </div>
+                        <div class="relative rounded-md shadow-sm">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <span class="text-brand-grey-medium sm:text-sm"> R$ </span>
+                            </div>
+                            <input
+                                id="preco_max"
+                                name="preco_max"
+                                type="number"
+                                min="0"
+                                required
+                                class="appearance-none block w-full pl-8 pr-3 py-2 border border-brand-grey-light placeholder-gray-400 text-brand-grey-medium rounded-md focus:outline-none focus:ring-brand-sage focus:border-brand-sage focus:z-10 sm:text-sm bg-white"
+                                placeholder="Até"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tamanho -->
+                <div>
+                    <label for="tamanho_compra" class="block text-xs font-medium text-brand-grey-medium">Tamanho da área construída desejada *</label>
+                    <div class="mt-1 relative rounded-md shadow-sm">
+                        <input
+                            id="tamanho_compra"
+                            name="tamanho_compra"
+                            type="number"
+                            min="1"
+                            required
+                            class="appearance-none block w-full px-3 py-2 border border-brand-grey-light placeholder-gray-400 text-brand-grey-medium rounded-md focus:outline-none focus:ring-brand-sage focus:border-brand-sage focus:z-10 sm:text-sm bg-white pr-12"
+                            placeholder="Ex: 90"
+                        />
+                        <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                            <span class="text-brand-grey-medium sm:text-sm"> m² </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bairros -->
+                <div>
+                    <label for="bairros" class="block text-xs font-medium text-brand-grey-medium">Bairros de interesse *</label>
+                    <input
+                        id="bairros"
+                        name="bairros"
+                        type="text"
+                        required
+                        class="mt-1 appearance-none relative block w-full px-3 py-2 border border-brand-grey-light placeholder-gray-400 text-brand-grey-medium rounded-md focus:outline-none focus:ring-brand-sage focus:border-brand-sage focus:z-10 sm:text-sm bg-white"
+                        placeholder="Liste os bairros ou regiões"
+                    />
+                </div>
+
+                <div class="grid grid-cols-3 gap-6">
+                    <!-- Quartos, Banheiros, Vagas -->
+                    <div>
+                        <label for="quartos_compra" class="block text-xs font-medium text-brand-grey-medium">Quartos *</label>
+                        <input id="quartos_compra" name="quartos_compra" type="number" min="0" required class="mt-1 appearance-none relative block w-full px-3 py-2 border border-brand-grey-light placeholder-gray-400 text-brand-grey-medium rounded-md focus:outline-none focus:ring-brand-sage focus:border-brand-sage focus:z-10 sm:text-sm bg-white" />
+                    </div>
+                    <div>
+                        <label for="banheiros_compra" class="block text-xs font-medium text-brand-grey-medium">Banheiros *</label>
+                        <input id="banheiros_compra" name="banheiros_compra" type="number" min="0" required class="mt-1 appearance-none relative block w-full px-3 py-2 border border-brand-grey-light placeholder-gray-400 text-brand-grey-medium rounded-md focus:outline-none focus:ring-brand-sage focus:border-brand-sage focus:z-10 sm:text-sm bg-white" />
+                    </div>
+                    <div>
+                        <label for="vagas_compra" class="block text-xs font-medium text-brand-grey-medium">Vagas *</label>
+                        <input id="vagas_compra" name="vagas_compra" type="number" min="0" required class="mt-1 appearance-none relative block w-full px-3 py-2 border border-brand-grey-light placeholder-gray-400 text-brand-grey-medium rounded-md focus:outline-none focus:ring-brand-sage focus:border-brand-sage focus:z-10 sm:text-sm bg-white" />
+                    </div>
+                </div>
+
+                <!-- Elevador -->
+                <div>
+                    <label class="block text-xs font-medium text-brand-grey-medium">Se apartamento, é imprescindível ter elevador? *</label>
+                    <div class="mt-2 space-x-4 flex">
+                        <div class="flex items-center">
+                            <input id="elevador_compra-sim" name="elevador_compra" type="radio" required value="Sim" class="focus:ring-brand-sage h-4 w-4 text-brand-sage border-brand-grey-light" />
+                            <label for="elevador_compra-sim" class="ml-2 block text-sm text-brand-grey-medium">Sim</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="elevador_compra-nao" name="elevador_compra" type="radio" value="Não" class="focus:ring-brand-sage h-4 w-4 text-brand-sage border-brand-grey-light" />
+                            <label for="elevador_compra-nao" class="ml-2 block text-sm text-brand-grey-medium">Não</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informações adicionais -->
+                <div class="pt-6">
+                    <h3 class="text-lg text-brand-grey-dark">Informações adicionais</h3>
+                    <hr class="mt-1 mb-4 border-t border-brand-grey-light w-16" />
+                    <div>
+                        <label for="intencao" class="block text-xs font-medium text-brand-grey-medium">Nos dê mais informações sobre a sua intenção de compra? (opcional)</label>
+                        <textarea
+                            id="intencao"
+                            name="intencao"
+                            rows="3"
+                            class="mt-1 shadow-sm block w-full sm:text-sm border border-brand-grey-light rounded-md focus:ring-brand-sage focus:border-brand-sage text-brand-grey-medium bg-white"
+                        ></textarea>
+                    </div>
+                    <div class="mt-4">
+                        <label for="qualidade_vida" class="block text-xs font-medium text-brand-grey-medium">O que esse imóvel precisa acrescentar na sua qualidade de vida? (opcional)</label>
+                        <textarea
+                            id="qualidade_vida"
+                            name="qualidade_vida"
+                            rows="3"
+                            class="mt-1 shadow-sm block w-full sm:text-sm border border-brand-grey-light rounded-md focus:ring-brand-sage focus:border-brand-sage text-brand-grey-medium bg-white"
+                        ></textarea>
+                    </div>
+                    <div class="mt-4">
+                        <label for="imovel_perfeito" class="block text-xs font-medium text-brand-grey-medium">Nos de mais detalhes sobre como você sonha ser seu imóvel perfeito que você compraria hoje? (opcional)</label>
+                        <textarea
+                            id="imovel_perfeito"
+                            name="imovel_perfeito"
+                            rows="3"
+                            class="mt-1 shadow-sm block w-full sm:text-sm border border-brand-grey-light rounded-md focus:ring-brand-sage focus:border-brand-sage text-brand-grey-medium bg-white"
+                        ></textarea>
+                    </div>
+                </div>
+
+                <!-- Dados de contato -->
+                <div class="pt-6">
+                    <h3 class="text-lg text-brand-grey-dark">Dados de contato</h3>
+                    <hr class="mt-1 mb-4 border-t border-brand-grey-light w-16" />
+                    <div>
+                        <label for="nome_compra" class="block text-xs font-medium text-brand-grey-medium">Nome completo *</label>
+                        <input id="nome_compra" name="nome_compra" type="text" required class="mt-1 appearance-none relative block w-full px-3 py-2 border border-brand-grey-light placeholder-gray-400 text-brand-grey-medium rounded-md focus:outline-none focus:ring-brand-sage focus:border-brand-sage focus:z-10 sm:text-sm bg-white" />
+                    </div>
+                    <div class="mt-4">
+                        <label for="telefone_compra" class="block text-xs font-medium text-brand-grey-medium">Telefone com WhatsApp *</label>
+                        <input id="telefone_compra" name="telefone_compra" type="tel" required class="mt-1 appearance-none relative block w-full px-3 py-2 border border-brand-grey-light placeholder-gray-400 text-brand-grey-medium rounded-md focus:outline-none focus:ring-brand-sage focus:border-brand-sage focus:z-10 sm:text-sm bg-white" placeholder="(XX) XXXXX-XXXX" />
+                    </div>
+                    <div class="mt-4">
+                        <label for="email_compra" class="block text-xs font-medium text-brand-grey-medium">Email (opcional)</label>
+                        <input id="email_compra" name="email_compra" type="email" class="mt-1 appearance-none relative block w-full px-3 py-2 border border-brand-grey-light placeholder-gray-400 text-brand-grey-medium rounded-md focus:outline-none focus:ring-brand-sage focus:border-brand-sage focus:z-10 sm:text-sm bg-white" />
+                    </div>
+                </div>
+
+                <!-- Botão Enviar -->
+                <div>
+                    <button
+                        type="submit"
+                        class="group relative w-full flex justify-center items-center py-2 px-4 border border-transparent text-sm font-montserrat-regular rounded-md text-white bg-brand-terracotta hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-sage transition duration-150 ease-in-out"
+                    >
+                        <!-- Simple SVG WhatsApp Icon -->
+                        <svg class="w-5 h-5 mr-2 -ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10c0 4.41-3.59 8-8 8a8.07 8.07 0 01-3.44-.87L2 18l1.17-3.36A7.93 7.93 0 012 10c0-4.41 3.59-8 8-8s8 3.59 8 8zm-2.13 3.96a.6.6 0 00-.43-.43l-1.43-.7a.6.6 0 00-.7.1l-.5.6a.6.6 0 01-.8.1 5.9 5.9 0 01-2.7-2.7.6.6 0 01.1-.8l.6-.5a.6.6 0 00.1-.7l-.7-1.43a.6.6 0 00-.43-.43.6.6 0 00-.7.1L6.04 6.2a.6.6 0 00-.1.7 3.9 3.9 0 001.1 2.7 3.9 3.9 0 002.7 1.1.6.6 0 00.7-.1l1.76-1.04a.6.6 0 00.1-.7z" clip-rule="evenodd"></path></svg>
+                        Enviar para WhatsApp
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('compraForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Collect form data
+            const formData = new FormData(this);
+            
+            // Prepare data object
+            const data = {
+                preco_min: formData.get('preco_min'),
+                preco_max: formData.get('preco_max'),
+                tamanho_compra: formData.get('tamanho_compra'),
+                bairros: formData.get('bairros'),
+                quartos_compra: formData.get('quartos_compra'),
+                banheiros_compra: formData.get('banheiros_compra'),
+                vagas_compra: formData.get('vagas_compra'),
+                elevador_compra: formData.get('elevador_compra'),
+                intencao: formData.get('intencao') || 'Não informado',
+                qualidade_vida: formData.get('qualidade_vida') || 'Não informado',
+                imovel_perfeito: formData.get('imovel_perfeito') || 'Não informado',
+                nome_compra: formData.get('nome_compra'),
+                telefone_compra: formData.get('telefone_compra'),
+                email_compra: formData.get('email_compra') || 'Não informado',
+            };
+            
+            // Format WhatsApp message
+            const message = `*INTERESSE DE COMPRA*\n\n` +
+                        `*Faixa de preço:* De R$ ${data.preco_min} até R$ ${data.preco_max}\n` +
+                        `*Tamanho desejado:* ${data.tamanho_compra} m²\n` +
+                        `*Bairros de interesse:* ${data.bairros}\n` +
+                        `*Quartos:* ${data.quartos_compra}\n` +
+                        `*Banheiros:* ${data.banheiros_compra}\n` +
+                        `*Vagas:* ${data.vagas_compra}\n` +
+                        `*Elevador imprescindível:* ${data.elevador_compra}\n\n` +
+                        `*Informações adicionais:*\n${data.intencao}\n\n` +
+                        `*O que busca em qualidade de vida:*\n${data.qualidade_vida}\n\n` +
+                        `*Descrição do imóvel perfeito:*\n${data.imovel_perfeito}\n\n` +
+                        `*Dados do interessado:*\n` +
+                        `*Nome:* ${data.nome_compra}\n` +
+                        `*Telefone:* ${data.telefone_compra}\n` +
+                        `*Email:* ${data.email_compra}\n\n` +
+                        `Enviado via formulário de compra do Instagram`;
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Construct WhatsApp URL
+            const whatsappNumber = "5531992287577"; // User's number confirmed
+            const urlWhatsapp = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            // Open WhatsApp link in a new tab
+            window.open(urlWhatsapp, '_blank');
+        });
+    </script>
+</body>
+</html>
